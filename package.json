@@ -1,0 +1,42 @@
+{
+  "name": "bbkenny-stacks-helpers-tokens",
+  "version": "1.0.0",
+  "description": "STX, SIP-010, and SIP-009 token helpers for Stacks L2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@stacks/transactions": "^7.2.0",
+    "@stacks/network": "^7.2.0",
+    "thebabalola-stacks-helpers-contracts": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "stacks",
+    "bitcoin",
+    "l2",
+    "blockchain",
+    "tokens"
+  ],
+  "author": "bbkenny",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChainLab-X/stacks-helpers-tokens",
+    "directory": "packages/tokens"
+  },
+  "bugs": {
+    "url": "https://github.com/ChainLab-X/stacks-helpers-tokens/issues"
+  },
+  "homepage": "https://github.com/ChainLab-X/stacks-helpers-tokens#readme"
+}
