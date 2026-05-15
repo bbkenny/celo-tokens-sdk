@@ -1,7 +1,7 @@
 import { uintCV, principalCV } from "@stacks/transactions";
-import { callReadOnly } from "thebabalola-stacks-helpers-contracts";
-import type { ContractCallOptions } from "richiey1-stacks-helpers-types";
-import { API_URLS } from "richiey1-stacks-helpers-types";
+import { callReadOnly } from "stacks-contracts-sdk";
+import type { ContractCallOptions } from "stacks-types-sdk";
+import { API_URLS } from "stacks-types-sdk";
 
 export async function getNftOwner(
   nftContract: string,

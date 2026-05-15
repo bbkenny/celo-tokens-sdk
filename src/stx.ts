@@ -1,5 +1,5 @@
-import { API_URLS } from "richiey1-stacks-helpers-types";
-import { callReadOnly } from "thebabalola-stacks-helpers-contracts";
+import { API_URLS } from "stacks-types-sdk";
+import { callReadOnly } from "stacks-contracts-sdk";
 
 export async function getStxBalance(
   address: string,
