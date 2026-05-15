@@ -1,7 +1,7 @@
 import { uintCV, principalCV, noneCV } from "@stacks/transactions";
 import { callReadOnly } from "stacks-contracts-sdk";
-import type { ContractCallOptions } from "stacks-types-sdk";
-import { API_URLS } from "stacks-types-sdk";
+import type { ContractCallOptions } from "cest-types-sdk";
+import { API_URLS } from "cest-types-sdk";
 
 export function sip010Transfer(
   tokenContract: string,

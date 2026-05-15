@@ -1,5 +1,5 @@
 {
-  "name": "stacks-tokens-sdk",
+  "name": "celo-tokens-sdk",
   "version": "1.0.1",
   "description": "STX, SIP-010, and SIP-009 token helpers for Stacks L2",
   "main": "dist/index.js",
@@ -33,11 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bbkenny/stacks-tokens-sdk"
+    "url": "https://github.com/bbkenny/celo-tokens-sdk"
   },
   "bugs": {
-    "url": "https://github.com/bbkenny/stacks-tokens-sdk/issues"
+    "url": "https://github.com/bbkenny/celo-tokens-sdk/issues"
   },
-  "homepage": "https://github.com/bbkenny/stacks-tokens-sdk#readme"
+  "homepage": "https://github.com/bbkenny/celo-tokens-sdk#readme"
 
 }
