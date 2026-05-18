@@ -1,44 +1,48 @@
-# bbkenny-stacks-helpers-tokens
+# celo-tokens-sdk
 
-STX, SIP-010 fungible token, and SIP-009 NFT helpers for Stacks L2.
+Native CELO, ERC-20, and ERC-721 token utilities for Celo blockchain using ethers.js.
 
 ## Install
 
 ```bash
-npm install bbkenny-stacks-helpers-tokens
+npm install celo-tokens-sdk
 ```
 
 ## Usage
 
 ```typescript
-import { getStxBalance, getSip010Balance, sip010Transfer, getNftOwner } from "bbkenny-stacks-helpers-tokens";
+import { getCeloBalance, transferCelo, getErc20Balance, transferErc20, getErc20Metadata } from "celo-tokens-sdk";
 
-// Get STX balance
-const balance = await getStxBalance("SP...");
+// 1. Native CELO
+const balance = await getCeloBalance("0x...");
+console.log("Celo balance:", balance.toString());
 
-// Get SIP-010 token balance
-const tokenBalance = await getSip010Balance("SP...token-contract", "SP...holder");
+const txHash = await transferCelo("private-key", "recipient-address", 1000000000000000000n);
 
-// Build SIP-010 transfer call
-const transferCall = sip010Transfer("SP.token-contract", "SP.sender", 1000000n, "SP.sender", "SP.recipient", "sender-private-key");
+// 2. ERC-20 (e.g. cUSD)
+const cUSDAddress = "0x765de816845861e75a25fca122bb6898b8b1282a";
+const erc20Bal = await getErc20Balance(cUSDAddress, "0xHolderAddress");
 
-// Get NFT owner
-const owner = await getNftOwner("SP.nft-contract", 1, "SP.viewer");
+const transferHash = await transferErc20(cUSDAddress, "private-key", "recipient-address", 500000000000000000n);
+
+const metadata = await getErc20Metadata(cUSDAddress);
+console.log(`Token: ${metadata.name} (${metadata.symbol}), Decimals: ${metadata.decimals}`);
 ```
 
 ## API
 
-### STX
-- `getStxBalance(address, networkUrl?)` — Returns `{ balance, locked, available }`
+### Native CELO
+- `getCeloBalance(address, providerUrl?)` — Returns the native CELO balance in wei.
+- `transferCelo(privateKey, recipient, amount, providerUrl?)` — Send native CELO. Returns transaction hash.
 
-### SIP-010 (Fungible Tokens)
-- `sip010Transfer(tokenContract, amount, sender, recipient, senderKey, network?)` — Build transfer call
-- `getSip010Balance(tokenContract, holderAddress, networkUrl?)` — Get token balance
-- `getSip010Metadata(tokenContract, senderAddress, networkUrl?)` — Get `{ name, symbol, decimals }`
+### ERC-20 Tokens
+- `getErc20Balance(tokenAddress, holderAddress, providerUrl?)` — Query ERC-20 balance.
+- `transferErc20(tokenAddress, privateKey, recipient, amount, providerUrl?)` — Transfer ERC-20 tokens. Returns transaction hash.
+- `getErc20Metadata(tokenAddress, providerUrl?)` — Fetch ERC-20 name, symbol, and decimals.
 
-### SIP-009 (NFTs)
-- `getNftOwner(nftContract, tokenId, senderAddress, networkUrl?)` — Get NFT owner
-- `getLastTokenId(nftContract, senderAddress, networkUrl?)` — Get last minted token ID
+### ERC-721 NFTs
+- `getNftOwner(nftAddress, tokenId, providerUrl?)` — Query owner address of an NFT.
+- `getNftUri(nftAddress, tokenId, providerUrl?)` — Fetch metadata URI of an NFT.
 
 ## License
 

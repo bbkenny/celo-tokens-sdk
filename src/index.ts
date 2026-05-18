@@ -1,3 +1,3 @@
-export * from "./stx";
-export * from "./sip010";
-export * from "./sip009";
+export * from "./celo";
+export * from "./erc20";
+export * from "./erc721";
